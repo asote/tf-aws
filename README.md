@@ -16,6 +16,6 @@ Instructions:
                 ARM_TENANT_ID = "..."  
                 aws_key_name = "..."  
 
-* Create key pair for your instance from EC2 dashboard/Network & Security/Key Pairs or use Puttygen to generate private and public keys and Terraform's AWS_KEY_PAIR resource type.
+* Create key pair for your instance from EC2 dashboard/Network & Security/Key Pairs or use Puttygen to generate private and public keys and Terraform's [AWS_KEY_PAIR](https://www.terraform.io/docs/providers/aws/r/key_pair.html) resource type.
 
 
