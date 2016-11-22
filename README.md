@@ -1,8 +1,10 @@
 # tf-aws
 AWS + Terraform
 
-Sample terraform configuration files to provision and deploy Windows VMs in AWS.
-[More information](https://www.terraform.io/docs/providers/aws/index.html)
+Sample terraform configuration files to provision and deploy Windows VMs in AWS.  
+
+[More information](https://www.terraform.io/docs/providers/aws/index.html)  
+
 Instructions:
 * Download latest version of Terraform for Windows, [here.] (https://www.terraform.io/downloads.html) to a local folder, eg. c:\Terraform
 * Set path system environmental variable, in PowerShell type $env:Path += ";c:\Terraform"
