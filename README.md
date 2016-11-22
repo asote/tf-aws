@@ -8,12 +8,14 @@ Instructions:
 * Set path system environmental variable, in PowerShell type $env:Path += ";c:\Terraform"
 * Launch PowerShell (cmd or git bash) and type terraform to confirm installation.
 * Code using any text editor, Visual Studio Code strongly recommended ( there is a Terraform extension for VSC).
-* Create a terraform.tfvars with the credentials (do not version control this file).  
+* Create a terraform.tfvars with the credentials (do not version control this file).  Use your IAM user's AWS access and secret keys.
 
                 AWS_ACCESS_KEY_ID = "..."  
                 AWS_SECRET_ACCESS_KEY = "..."  
                 AWS_DEFAULT_REGION = "..."  
                 ARM_TENANT_ID = "..."  
                 aws_key_name = "..."  
+
+*Create key pair for your instance from EC2 dashboard/Network & Security/Key Pairs or use Puttygen to generate private andd public keys and Terraform's AWS_KEY_PAIR resource type.
 
 
