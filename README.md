@@ -1,0 +1,19 @@
+# tf-aws
+AWS + Terraform
+
+Sample terraform configuration files to provision and deploy Windows VMs in AWS.
+
+Instructions:
+* Download latest version of Terraform for Windows, [here.] (https://www.terraform.io/downloads.html) to a local folder, eg. c:\Terraform
+* Set path system environmental variable, in PowerShell type $env:Path += ";c:\Terraform"
+* Launch PowerShell (cmd or git bash) and type terraform to confirm installation.
+* Code using any text editor, Visual Studio Code strongly recommended ( there is a Terraform extension for VSC).
+* Create a terraform.tfvars with the credentials (do not version control this file).  
+
+                AWS_ACCESS_KEY_ID = "..."  
+                AWS_SECRET_ACCESS_KEY = "..."  
+                AWS_DEFAULT_REGION = "..."  
+                ARM_TENANT_ID = "..."  
+                aws_key_name = "..."  
+
+
