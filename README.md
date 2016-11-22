@@ -2,7 +2,7 @@
 AWS + Terraform
 
 Sample terraform configuration files to provision and deploy Windows VMs in AWS.
-
+[More information](https://www.terraform.io/docs/providers/aws/index.html)
 Instructions:
 * Download latest version of Terraform for Windows, [here.] (https://www.terraform.io/downloads.html) to a local folder, eg. c:\Terraform
 * Set path system environmental variable, in PowerShell type $env:Path += ";c:\Terraform"
@@ -16,6 +16,6 @@ Instructions:
                 ARM_TENANT_ID = "..."  
                 aws_key_name = "..."  
 
-* Create key pair for your instance from EC2 dashboard/Network & Security/Key Pairs or use Puttygen to generate private and public keys and Terraform's [AWS_KEY_PAIR](https://www.terraform.io/docs/providers/aws/r/key_pair.html) resource type.
+* Create key pair for your instance from EC2 dashboard/Network & Security/Key Pairs or use [Puttygen](https://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe) to generate private and public keys and Terraform's [AWS_KEY_PAIR](https://www.terraform.io/docs/providers/aws/r/key_pair.html) resource type.
 
 
