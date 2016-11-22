@@ -1,5 +1,3 @@
-variable "aws_key_path" {}
-
 variable "aws_key_name" {}
 
 resource "aws_instance" "win-vm" {
