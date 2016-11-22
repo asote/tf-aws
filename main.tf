@@ -1,7 +1,9 @@
 variable "aws_key_path" {}
 
+variable "aws_key_name" {}
+
 // Use the private key in the AWS console to decrypt the password after downloading the .rdp file
-resource "aws_key_pair" "sftdeployer" {
+resource "aws_key_pair" "keys" {
   key_name   = "${var.aws_key_name}"
   public_key = "${file("${var.aws_key_path}")}"
 }
