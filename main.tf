@@ -5,7 +5,7 @@ resource "aws_instance" "win-vm" {
   ami                         = "ami-83d2f894"                   # Microsoft Windows Server 2012 R2 Base - ami-83d2f894
   instance_type               = "t2.micro"
   availability_zone           = "us-east-1b"
-  security_groups             = ["${aws_security_group.web.id}"]
+  vpc_security_group_ids      = ["${aws_security_group.web.id}"]
   subnet_id                   = "${aws_subnet.tier1-sub.id}"
   associate_public_ip_address = true
   source_dest_check           = false
