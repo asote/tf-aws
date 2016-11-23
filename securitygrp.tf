@@ -1,5 +1,5 @@
-resource "aws_security_group" "default" {
-  description = "Minimum functional ACLs for Windows node"
+resource "aws_security_group" "tier1" {
+  description = "Security group for subnet aws_subnet.tier1"
 
   tags {
     Name = "security-win-vm"
