@@ -6,7 +6,7 @@ resource "aws_instance" "win-vm" {
   instance_type          = "t2.micro"
   availability_zone      = "us-east-1b"
   vpc_security_group_ids = ["${aws_security_group.tier1-sg.id}"]
-  #subnet_id              = "${aws_subnet.tier1-sub.id}"
+  subnet_id              = "${aws_subnet.tier1-sub.id}"
   key_name               = "${var.aws_key_name}"
 
   tags = {
