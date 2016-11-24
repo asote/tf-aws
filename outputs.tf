@@ -42,6 +42,10 @@ output "LBext_Security_Group" {
   value = "${aws_elb.web.source_security_group}"
 }
 
-output "LBint_Security_Group" {
+output "LBint-sql_Security_Group" {
   value = "${aws_elb.sql.source_security_group}"
+}
+
+output "LBint-app_Security_Group" {
+  value = "${aws_elb.app.source_security_group}"
 }
