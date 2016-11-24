@@ -22,18 +22,22 @@ output "dcs_ip" {
   value = ["${aws_instance.dc.*.private_ip}"]
 }
 
-output "LB_name" {
+output "LBext_name" {
   value = ["${aws_elb.web.name}"]
 }
 
-output "LB_instances" {
-  value = ["${aws_elb.web.instances}"]
+output "LBint_name" {
+  value = ["${aws_elb.sql.name}"]
 }
 
-output "LB_DNS" {
+output "LBext_DNS" {
   value = "${aws_elb.web.dns_name}"
 }
 
-output "LB_Security_Group" {
+output "LBext_Security_Group" {
   value = "${aws_elb.web.source_security_group}"
+}
+
+output "LBint_Security_Group" {
+  value = "${aws_elb.sql.source_security_group}"
 }
