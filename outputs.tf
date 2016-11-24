@@ -14,9 +14,9 @@ output "sqlservers_ip" {
   value = ["${aws_instance.sql.*.private_ip}"]
 }
 
-#output "fsw_ip" {
-#  value = ["${aws_instance.fsw.*.private_ip}"]
-#}
+output "fsw_ip" {
+  value = ["${aws_instance.fsw.*.private_ip}"]
+}
 
 output "dcs_ip" {
   value = ["${aws_instance.dc.*.private_ip}"]
