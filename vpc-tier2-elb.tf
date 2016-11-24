@@ -1,6 +1,6 @@
 # Create intenal lb for app subnet
 resource "aws_elb" "app" {
-  name = "vpc-tier2-elb"
+  name     = "vpc-tier2-elb"
   internal = true
 
   subnets         = ["${aws_subnet.tier2-sub.id}"]
