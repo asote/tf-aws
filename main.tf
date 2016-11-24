@@ -17,8 +17,8 @@ resource "aws_instance" "web" {
   }
 }
 
-resource "aws_eip" "web" {
-  instance                  = "${aws_instance.web.id}"
-  associate_with_private_ip = "10.0.1.${count.index + 5}"
-  vpc                       = true
-}
+#resource "aws_eip" "web" {
+#  instance                  = "${aws_instance.web.${count.index}id}"
+#  associate_with_private_ip = "10.0.1.${count.index + 5}"
+#  vpc                       = true
+#}
