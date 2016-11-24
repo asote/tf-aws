@@ -90,9 +90,10 @@ resource "aws_route_table_association" "public" {
 
 # Create internet facing lb for eb subnet
 resource "aws_elb" "web" {
-  name            = "ext-elb"
-  subnets         = ["${aws_subnet.tier1-sub.id}"]
-  security_groups = ["${aws_security_group.web.id}"]
+  name               = "ext-elb"
+  availability_zones = ["us-east-1a", "us-east-1b"]
+  subnets            = ["${aws_subnet.tier1-sub.id}"]
+  security_groups    = ["${aws_security_group.web.id}"]
 
   listener {
     instance_port     = 80
@@ -102,4 +103,21 @@ resource "aws_elb" "web" {
   }
 
   instances = ["${aws_instance.web.*.id}"]
+
+  health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 2
+    timeout             = 3
+    target              = "HTTP:80/"
+    interval            = 5
+  }
+
+  tags {
+    Name          = ""
+    Resource      = "ELB"
+    ResourceGroup = ""
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
+  }
 }
