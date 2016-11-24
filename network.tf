@@ -134,7 +134,7 @@ resource "aws_route_table_association" "public" {
 # Create internet facing lb for eb subnet
 resource "aws_elb" "web" {
   name               = "ext-elb"
-  availability_zones = ["us-east-1a", "us-east-1b"]
+  #availability_zones = ["us-east-1a", "us-east-1b"]
   subnets            = ["${aws_subnet.tier1-sub.id}"]
   security_groups    = ["${aws_security_group.web.id}"]
 
