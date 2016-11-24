@@ -3,7 +3,7 @@ AWS + Terraform
 
 Sample terraform configuration files to provision and deploy Windows VMs in AWS.  
 
-![AWS Architecture](https://2.bp.blogspot.com/-NMbBqk4f1IM/WDcb6E0VE9I/AAAAAAAACpU/qSU0zaJtx3wZLl8OjThO7tjjh6-XnqeewCLcB/s640/AWS-Architecture.PNG)
+![AWS Architecture](https://4.bp.blogspot.com/-zqKoN36CX6o/WDch4ofAZVI/AAAAAAAACpk/aNxPKlcnSl408yiDZ2sBfHIwuWMupQUewCLcB/s640/AWS-Architecture.PNG)
 
 [More information](https://www.terraform.io/docs/providers/aws/index.html)  
 
