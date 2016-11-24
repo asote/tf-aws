@@ -1,10 +1,10 @@
 # Create interal lb for sql subnet
 resource "aws_elb" "sql" {
-  name = "vpc-tier3-elb"
-
-  internal        = true
-  subnets         = ["${aws_subnet.tier3-sub.id}"]
-  security_groups = ["${aws_security_group.sql.id}"]
+  name               = "vpc-tier3-elb"
+  availability_zones = ["us-east-1b"]
+  internal           = true
+  subnets            = ["${aws_subnet.tier3-sub.id}"]
+  security_groups    = ["${aws_security_group.sql.id}"]
 
   listener {
     instance_port     = 1433
