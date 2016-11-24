@@ -1,8 +1,7 @@
 # Create internet facing lb for eb subnet
 resource "aws_elb" "web" {
-  name = "ext-elb"
+  name = "vpc-tier1-elb"
 
-  #availability_zones = ["us-east-1a", "us-east-1b"]
   subnets         = ["${aws_subnet.tier1-sub.id}"]
   security_groups = ["${aws_security_group.web.id}"]
 
@@ -24,7 +23,7 @@ resource "aws_elb" "web" {
   }
 
   tags {
-    Name          = "External-LB"
+    Name          = "vpc-tier1-elb"
     Resource      = "ELB"
     ResourceGroup = "asotelo-tf-rgp"
     Ecosystem     = ""
