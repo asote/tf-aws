@@ -129,15 +129,6 @@ resource "aws_route_table" "public" {
 resource "aws_route_table_association" "public" {
   subnet_id      = "${aws_subnet.tier1-sub.id}"
   route_table_id = "${aws_route_table.public.id}"
-
-  tags {
-    Name          = "Route Table Assoc"
-    Resource      = "RTA"
-    ResourceGroup = "asotelo-tf-rgp"
-    Ecosystem     = ""
-    Application   = ""
-    Environment   = ""
-  }
 }
 
 # Create internet facing lb for eb subnet
