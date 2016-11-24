@@ -26,7 +26,11 @@ output "LBext_name" {
   value = ["${aws_elb.web.name}"]
 }
 
-output "LBint_name" {
+output "LBint-app_name" {
+  value = ["${aws_elb.app.name}"]
+}
+
+output "LBint-sql_name" {
   value = ["${aws_elb.sql.name}"]
 }
 
