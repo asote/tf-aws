@@ -56,3 +56,16 @@ resource "aws_route_table_association" "public" {
   subnet_id      = "${aws_subnet.tier1-sub.id}"
   route_table_id = "${aws_route_table.public.id}"
 }
+
+resource "aws_elb" "web" {
+  name = "ext-elb"
+  subnets = ["${aws_subnet.tier1-sub.id}"]
+  security_groups = ["${aws_security_group.web.id}"]
+  listener {
+    instance_port = 80
+    instance_protocol = "http"
+    lb_port = 80
+    lb_protocol = "http"
+  }
+  instances = ["${aws_instance.web.*.id}"]
+}

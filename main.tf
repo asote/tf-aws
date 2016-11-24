@@ -1,7 +1,7 @@
 variable "aws_key_name" {}
 
-resource "aws_instance" "win-vm" {
-  count                  = 1
+resource "aws_instance" "web" {
+  count                  = 2
   ami                    = "ami-83d2f894"                   # Microsoft Windows Server 2012 R2 Base - ami-83d2f894
   instance_type          = "t2.micro"
   availability_zone      = "us-east-1b"
@@ -13,11 +13,12 @@ resource "aws_instance" "win-vm" {
   key_name                    = "${var.aws_key_name}"
 
   tags = {
-    Name = "as-win-vm1"
+    Name = "web-vm${count.index + 1}"
   }
 }
 
-resource "aws_eip" "web-1" {
-  instance = "${aws_instance.win-vm.id}"
+resource "aws_eip" "web" {
+  instance = "${aws_instance.web.id}"
+  associate_with_private_ip = "10.0.1.${count.index + 5}"
   vpc      = true
 }

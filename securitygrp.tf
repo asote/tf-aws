@@ -1,5 +1,5 @@
 resource "aws_security_group" "web" {
-  name        = "vpc_web"
+  name        = "sg_web"
   description = "Security group for web that allows web traffic from internet"
   vpc_id      = "${aws_vpc.default.id}"
 
