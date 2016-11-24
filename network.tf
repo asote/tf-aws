@@ -4,7 +4,12 @@ resource "aws_vpc" "default" {
   enable_dns_hostnames = true
 
   tags {
-    Name = "terraform-aws-vpc"
+    Name          = "terraform-aws-vpc"
+    Resource      = "VPC"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }
 
@@ -17,7 +22,12 @@ resource "aws_subnet" "tier1-sub" {
   depends_on              = ["aws_internet_gateway.default"]
 
   tags {
-    Name = "tier1-sub"
+    Name          = "tier1-sub"
+    Resource      = "Subnet"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }
 
@@ -29,7 +39,12 @@ resource "aws_subnet" "tier2-sub" {
   cidr_block        = "10.0.2.0/24"
 
   tags {
-    Name = "tier2-sub"
+    Name          = "tier2-sub"
+    Resource      = "Subnet"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }
 
@@ -41,7 +56,12 @@ resource "aws_subnet" "tier3-sub" {
   cidr_block        = "10.0.3.0/24"
 
   tags {
-    Name = "tier3-sub"
+    Name          = "tier3-sub"
+    Resource      = "subnet"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }
 
@@ -63,13 +83,27 @@ resource "aws_subnet" "tier5-sub" {
   cidr_block        = "10.0.0.128/25"
 
   tags {
-    Name = "tier5-sub"
+    Name          = "tier5-sub"
+    Resource      = "Subnet"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }
 
 # Create IGW for web subnet
 resource "aws_internet_gateway" "default" {
   vpc_id = "${aws_vpc.default.id}"
+
+  tags {
+    Name          = "Internet-Gateway"
+    Resource      = "IGW"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
+  }
 }
 
 # Create route table for web subnet
@@ -80,12 +114,30 @@ resource "aws_route_table" "public" {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.default.id}"
   }
+
+  tags {
+    Name          = "Route Table"
+    Resource      = "RT"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
+  }
 }
 
 # Associate route table with web subnet
 resource "aws_route_table_association" "public" {
   subnet_id      = "${aws_subnet.tier1-sub.id}"
   route_table_id = "${aws_route_table.public.id}"
+
+  tags {
+    Name          = "Route Table Assoc"
+    Resource      = "RTA"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
+  }
 }
 
 # Create internet facing lb for eb subnet
@@ -113,9 +165,9 @@ resource "aws_elb" "web" {
   }
 
   tags {
-    Name          = ""
+    Name          = "External-LB"
     Resource      = "ELB"
-    ResourceGroup = ""
+    ResourceGroup = "asotelo-tf-rgp"
     Ecosystem     = ""
     Application   = ""
     Environment   = ""

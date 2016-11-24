@@ -19,7 +19,12 @@ resource "aws_security_group" "default" {
   }
 
   tags {
-    Name = "default-vpc"
+    Name          = "default-vpc"
+    Resource      = "SG"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }
 
@@ -51,6 +56,11 @@ resource "aws_security_group" "web" {
   }
 
   tags {
-    Name = "web-sg"
+    Name          = "web-sg"
+    Resource      = "SG"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }

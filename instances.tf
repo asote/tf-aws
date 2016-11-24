@@ -16,6 +16,11 @@ resource "aws_instance" "web" {
   key_name          = "${var.aws_key_name}"
 
   tags = {
-    Name = "web-vm${count.index + 1}"
+    Name          = "web-vm${count.index + 1}"
+    Resource      = "Instance"
+    ResourceGroup = "asotelo-tf-rgp"
+    Ecosystem     = ""
+    Application   = ""
+    Environment   = ""
   }
 }
