@@ -3,6 +3,7 @@
 resource "aws_security_group" "elb" {
   name        = "vpc-tier1-elb_sg"
   description = "Used in the terraform"
+  vpc_id      = "${aws_vpc.default.id}"
 
   # HTTP access from anywhere
   ingress {
