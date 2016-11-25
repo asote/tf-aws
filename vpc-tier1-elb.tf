@@ -4,7 +4,7 @@ resource "aws_elb" "web" {
 
   #availability_zones = ["us-east-1b"]
   subnets         = ["${aws_subnet.tier1-sub.id}"]
-  security_groups = ["${aws_security_group.web.id}"]
+  security_groups = ["${aws_security_group.elb.id}"]
 
   listener {
     instance_port     = 80
