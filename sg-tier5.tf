@@ -8,7 +8,7 @@ resource "aws_security_group" "mgt" {
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0", "10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24", "10.0.4.0/27", "10.0.0.128/25"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags {

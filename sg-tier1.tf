@@ -18,6 +18,14 @@ resource "aws_security_group" "web" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Allo RDP requests from mgt subnet (for bastion host)
+  ingress {
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.128/25"]
+  }
+
   # outbound internet access
   egress {
     from_port   = 0

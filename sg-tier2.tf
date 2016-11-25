@@ -18,6 +18,14 @@ resource "aws_security_group" "app" {
     cidr_blocks = ["10.0.1.0/24"]
   }
 
+  # Allo RDP requests from mgt subnet (for bastion host)
+  ingress {
+    from_port   = 3389
+    to_port     = 3389
+    protocol    = "tcp"
+    cidr_blocks = ["10.0.0.128/25"]
+  }
+
   tags {
     Name          = "app-tier2-sg"
     Resource      = "SG"
