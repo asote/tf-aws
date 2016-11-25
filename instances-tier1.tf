@@ -43,6 +43,13 @@ resource "null_resource" "copy_scripts" {
     destination = "C:/Install-IIS.ps1"
   }
 
+  connection {
+    type     = "winrm"
+    user     = "Administrator"
+    password = "${var.admin_password}" # This is also the password to log in.
+    timeout  = "10m"
+  }
+
   depends_on = ["aws_instance.web"]
 }
 
