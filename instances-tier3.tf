@@ -1,8 +1,8 @@
 resource "aws_instance" "sql" {
   count                  = "2"
-  ami                    = "ami-83d2f894"                   # Microsoft Windows Server 2012 R2 Base - ami-83d2f894
+  ami                    = "ami-83d2f894"                                                       # Microsoft Windows Server 2012 R2 Base - ami-83d2f894
   instance_type          = "t2.micro"
-  vpc_security_group_ids = ["${aws_security_group.sql.id}"]
+  vpc_security_group_ids = ["${aws_security_group.default.id}", "${aws_security_group.sql.id}"]
 
   subnet_id         = "${aws_subnet.tier3-sub.id}"
   source_dest_check = false
