@@ -2,9 +2,8 @@
 resource "aws_elb" "web" {
   name = "vpc-tier1-elb"
 
-  #availability_zones = ["us-east-1b"]
   subnets         = ["${aws_subnet.tier1-sub.id}"]
-  security_groups = ["${aws_security_group.elb.id}"]
+  security_groups = ["${aws_security_group.tier1-elb.id}"]
 
   listener {
     instance_port     = 80

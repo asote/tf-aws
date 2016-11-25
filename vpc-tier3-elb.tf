@@ -5,7 +5,7 @@ resource "aws_elb" "sql" {
   #availability_zones = ["us-east-1b"]
   internal        = true
   subnets         = ["${aws_subnet.tier3-sub.id}"]
-  security_groups = ["${aws_security_group.sql.id}"]
+  security_groups = ["${aws_security_group.tier3-elb.id}"]
 
   listener {
     instance_port     = 1433

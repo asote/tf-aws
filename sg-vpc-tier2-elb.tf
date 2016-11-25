@@ -1,26 +1,26 @@
-resource "aws_security_group" "tier1-elb" {
-  name        = "vpc-tier1-elb_sg"
-  description = "Security group to access tier1 ELB over HTTP"
+resource "aws_security_group" "tier2-elb" {
+  name        = "vpc-tier2-elb_sg"
+  description = "Security group to access tier2 ELB over HTTP"
   vpc_id      = "${aws_vpc.default.id}"
 
-  # HTTP access from anywhere
+  # HTTP access from tier1
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.1.0/24"]
   }
 
-  # outbound internet access
+  # outbound traffic access
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.1.0/24"]
   }
 
   tags {
-    Name          = "vpc-tier1-elb_sg"
+    Name          = "vpc-tier2-elb_sg"
     Resource      = "SG"
     ResourceGroup = "asotelo-tf-rgp"
     Ecosystem     = ""

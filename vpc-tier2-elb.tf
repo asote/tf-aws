@@ -3,9 +3,8 @@ resource "aws_elb" "app" {
   name     = "vpc-tier2-elb"
   internal = true
 
-  #availability_zones = ["us-east-1b"]
   subnets         = ["${aws_subnet.tier2-sub.id}"]
-  security_groups = ["${aws_security_group.app.id}"]
+  security_groups = ["${aws_security_group.tier2-elb.id}"]
 
   listener {
     instance_port     = 80
