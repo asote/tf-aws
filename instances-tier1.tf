@@ -8,6 +8,23 @@ resource "aws_instance" "web" {
   source_dest_check = false
   key_name          = "${var.aws_key_name}"
 
+  connection {
+    type     = "winrm"
+    user     = "Administrator"
+    password = "${var.admin_password}"
+  }
+
+  user_data = <<EOF
+<script>
+  winrm quickconfig -q & winrm set winrm/config/winrs @{MaxMemoryPerShellMB="300"} & winrm set winrm/config @{MaxTimeoutms="1800000"} & winrm set winrm/config/service @{AllowUnencrypted="true"} & winrm set winrm/config/service/auth @{Basic="true"}
+</script>
+<powershell>
+  netsh advfirewall firewall add rule name="WinRM in" protocol=TCP dir=in profile=any localport=5985 remoteip=any localip=any action=allow
+  $admin = [adsi]("WinNT://./administrator, user")
+  $admin.psbase.invoke("SetPassword", "${var.admin_password}")
+</powershell>
+EOF
+
   tags = {
     Name          = "web-vm${count.index + 1}"
     Resource      = "Instance"

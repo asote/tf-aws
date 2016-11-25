@@ -6,3 +6,7 @@ variable "count" {
   description = "Number of instances"
   default     = "1"
 }
+
+variable "admin_password" {
+  description = "Windows Administrator password to login as."
+}
