@@ -1,4 +1,4 @@
-# Security group for the web
+# Security group for the webbastion host
 resource "aws_security_group" "mgt" {
   name        = "mgt-tier5-sg"
   description = "Security group for RDP traffic from all subnets to mgt subnet for bastion host."
