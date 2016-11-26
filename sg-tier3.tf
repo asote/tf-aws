@@ -19,6 +19,13 @@ resource "aws_security_group" "sql" {
     cidr_blocks = ["10.0.0.128/25"]
   }
 
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags {
     Name          = "sql-tier3-sg"
     Resource      = "SG"
