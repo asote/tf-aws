@@ -38,6 +38,14 @@ output "LBext_DNS" {
   value = "${aws_elb.web.dns_name}"
 }
 
+output "LBint-app_DNS" {
+  value = "${aws_elb.app.dns_name}"
+}
+
+output "LBint-sql_DNS" {
+  value = "${aws_elb.sql.dns_name}"
+}
+
 output "LBext_Security_Group" {
   value = "${aws_elb.web.source_security_group}"
 }
