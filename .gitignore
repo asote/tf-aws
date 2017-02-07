@@ -4,3 +4,4 @@
 .terraform/
 *.txt
 *.pem
+credentials.ps1
